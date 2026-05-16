@@ -1,0 +1,6 @@
+binary_path: /work/target/vuln
+arch: x86_64
+entry: stdin
+seed_corpus_dir: /work/seeds
+timeout_ms: 1000
+mode: auto

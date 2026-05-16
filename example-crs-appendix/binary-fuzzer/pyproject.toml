@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "binary-fuzzer"
+version = "0.1.0"
+description = "Atlantis CRS: pure-binary intake and black-box fuzzing (AFL++ QEMU/Frida modes)."
+authors = ["Atlantis"]
+license = "MIT"
+readme = "README.md"
+packages = [{ include = "binary_fuzzer" }]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pydantic = ">=2"
+"ruamel.yaml" = ">=0.18"
+
+[tool.poetry.scripts]
+binary-fuzz = "binary_fuzzer.cli:main"
+
+[tool.poetry.group.dev.dependencies]
+pytest = ">=7"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
