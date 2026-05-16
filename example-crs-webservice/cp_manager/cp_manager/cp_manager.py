@@ -152,6 +152,16 @@ class CPManager:
     def launch(self):
         self.info("Launch")
 
+        if self.task_detail.is_binary_only:
+            self.info(
+                "Binary-only task detected; dispatching to binary intake "
+                "(skipping OSS-Fuzz build, crs-multilang, crs-sarif, crs-patch, crs-java)."
+            )
+            from .binary_intake import run_binary_intake
+
+            run_binary_intake(self.task_detail, self.task_id)
+            return
+
         def build():
             return self.__build()
 
